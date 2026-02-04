@@ -1,0 +1,37 @@
+[workspace]
+name = "workspace"
+version = "0.1.0"
+authors = ["ian <ian.page38@gmail.com>"]
+channels = ["pytorch", "nvidia", "pyg", "conda-forge"]
+platforms = ["linux-64"]
+
+[dependencies]
+python = "3.10.*"
+pytorch = "*"
+pytorch-cuda = "12.1.*"
+cuda-toolkit="12.1.*"
+cuda-nvcc = "12.1.*"        # other wise i get v13.1
+cuda-cudart-dev = "12.1.*"  # The Basic Runtime Headers
+cuda-cccl = "12.1.*"        # The Standard Library Headers (The "Screws": Thrust, CUB)
+cuda-driver-dev = "12.1.*"  # Driver headers (Just to be safe)
+
+ninja = "*"
+plyfile = "*"
+pip = "*"
+# torchaudio = "*"
+torchvision = "*"
+pytorch-scatter = "*"
+tqdm = "*"
+imageio = "*"
+# opencv = "*"
+imageio-ffmpeg = "*"
+scipy = "*"
+# lpips = "*"
+einops = "*"
+
+[pypi-dependencies]
+opencv-python-headless = "*"
+lpips = "*"
+
+[tasks]
+setup-env = "python -m pip install submodules/depth-diff-gaussian-rasterization submodules/simple-knn --no-build-isolation"
